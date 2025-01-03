@@ -1,0 +1,3 @@
+[submodule "libs/cpsz"]
+	path = libs/cpsz
+	url = git@github.com:bzhan166/cpSZ.git

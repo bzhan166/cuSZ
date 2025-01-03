@@ -315,15 +315,14 @@ void KERNEL_SEQ_x_lorenzo_3d1l(
   data_partition();
 
   PFOR3_GRID()
-  PFOR3_BLOCK()
   {
-    threadview_load();
-    threadview_partial_sum_x();
-    threadview_partial_sum_y();
-    threadview_partial_sum_z();
-    threadview_store();
-  }
+    PFOR3_BLOCK(){threadview_load();}
 
+    PFOR3_BLOCK(){threadview_partial_sum_x();}
+    PFOR3_BLOCK(){threadview_partial_sum_y();}
+    PFOR3_BLOCK(){threadview_partial_sum_z();}
+    PFOR3_BLOCK(){threadview_store();}
+  }
   delete _buf1;
 }
 
